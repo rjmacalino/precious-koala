@@ -1,0 +1,8 @@
+# Build tooling — not part of the deployed site
+node_modules/
+package.json
+package-lock.json
+optimize-images.js
+
+# Original full-size camera photos (we ship the optimised versions instead)
+assets/APR*.jpg

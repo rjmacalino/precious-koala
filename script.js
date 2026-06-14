@@ -1,19 +1,14 @@
 'use strict';
 
-/* ============================================================
-   Precious Koala — shared storefront logic (vanilla JS)
-   - Product catalog
-   - localStorage cart (add / remove / qty / totals)
-   - Header cart-count badge
-   - Per-page renderers
-   ============================================================ */
+// storefront logic shared across pages.
+// product catalog, a localStorage cart, the header badge, and the per-page renderers.
 
 (function () {
-  // ── Product catalog ───────────────────────────────────────
+  // Product catalog
   const PRODUCTS = [
     {
       id: 'bmsb-220-30',
-      name: 'Breast Milk Storage Bags — 220ml',
+      name: 'Breast Milk Storage Bags 220ml',
       pack: '30 Pack',
       price: 14.95,
       image: 'assets/banner.png',
@@ -23,8 +18,8 @@
     },
     {
       id: 'bmsb-220-60',
-      name: 'Breast Milk Storage Bags — 220ml',
-      pack: '60 Pack — Value',
+      name: 'Breast Milk Storage Bags 220ml',
+      pack: '60 Pack (Value)',
       price: 26.95,
       image: 'assets/banner.png',
       badge: 'Best Value',
@@ -33,8 +28,8 @@
     },
     {
       id: 'bmsb-220-90',
-      name: 'Breast Milk Storage Bags — 220ml',
-      pack: '90 Pack — Family',
+      name: 'Breast Milk Storage Bags 220ml',
+      pack: '90 Pack (Family)',
       price: 37.95,
       image: 'assets/banner.png',
       badge: null,
@@ -46,7 +41,7 @@
   const CART_KEY = 'pk_cart';
   const CURRENCY = '$';
 
-  // ── Cart storage ──────────────────────────────────────────
+  // Cart storage
   function loadCart() {
     try { return JSON.parse(localStorage.getItem(CART_KEY) || '{}'); }
     catch (_) { return {}; }
@@ -97,7 +92,7 @@
     return CURRENCY + n.toFixed(2);
   }
 
-  // ── Header badge ──────────────────────────────────────────
+  // Header badge
   function updateCartBadge() {
     const badges = document.querySelectorAll('.cart-count');
     const count = cartCount();
@@ -107,7 +102,7 @@
     });
   }
 
-  // ── Mobile nav toggle ─────────────────────────────────────
+  // Mobile nav toggle
   function initNavToggle() {
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.querySelector('.nav-menu');
@@ -118,7 +113,7 @@
     });
   }
 
-  // ── Toast ─────────────────────────────────────────────────
+  // Toast
   function toast(msg) {
     let el = document.querySelector('.toast');
     if (!el) {
@@ -134,7 +129,7 @@
     el._t = setTimeout(() => el.classList.remove('show'), 2200);
   }
 
-  // ── Renderers ─────────────────────────────────────────────
+  // Renderers
   function productCardHTML(p) {
     return `
       <article class="product-card">
@@ -167,7 +162,7 @@
     const params = new URLSearchParams(location.search);
     const p = getProduct(params.get('id')) || PRODUCTS[0];
 
-    document.title = `${p.name} (${p.pack}) — Precious Koala`;
+    document.title = `${p.name} (${p.pack}) · Precious Koala`;
     wrap.innerHTML = `
       <div class="detail-media">
         <img src="${p.image}" alt="${p.name} ${p.pack}" onerror="this.style.display='none'" />
@@ -191,7 +186,7 @@
           </div>
         </div>
         <button class="btn btn-primary btn-lg" id="detail-add" data-add="${p.id}">Add to Cart</button>
-        <p class="detail-note">Free shipping on orders over $50 · Ships in 1–2 business days</p>
+        <p class="detail-note">Free shipping on orders over $50 · Ships in 1-2 business days</p>
       </div>`;
 
     const qtyInput = wrap.querySelector('#qty');
@@ -203,7 +198,7 @@
     });
     wrap.querySelector('#detail-add').addEventListener('click', () => {
       addToCart(p.id, Math.max(1, parseInt(qtyInput.value, 10) || 1));
-      toast(`Added to cart — ${p.pack}`);
+      toast(`Added to cart: ${p.pack}`);
     });
   }
 
@@ -260,7 +255,7 @@
         <div class="summary-line total"><span>Total</span><span>${money(total + shipping)}</span></div>
         <button class="btn btn-primary btn-lg" id="checkout-btn">Checkout</button>
         <a href="products.html" class="link-btn center">Continue shopping</a>
-        <p class="cart-note">Payment isn't enabled yet — this is a demo checkout.</p>
+        <p class="cart-note">Payment isn't enabled yet. This is a demo checkout.</p>
       </aside>`;
 
     wrap.querySelectorAll('[data-cart-step]').forEach(btn => {
@@ -280,22 +275,22 @@
       btn.addEventListener('click', () => { removeFromCart(btn.dataset.remove); renderCart(); });
     });
     wrap.querySelector('#checkout-btn').addEventListener('click', () => {
-      toast('Checkout is a demo — payments coming soon!');
+      toast('Checkout is a demo. Payments coming soon!');
     });
   }
 
-  // ── Global add-to-cart delegation (grids) ─────────────────
+  // Global add-to-cart delegation (grids)
   function initAddButtons() {
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-add]');
       if (!btn || btn.id === 'detail-add') return;
       addToCart(btn.dataset.add, 1);
       const p = getProduct(btn.dataset.add);
-      toast(p ? `Added to cart — ${p.pack}` : 'Added to cart');
+      toast(p ? `Added to cart: ${p.pack}` : 'Added to cart');
     });
   }
 
-  // ── Insta carousel ────────────────────────────────────────
+  // Insta carousel
   function initCarousel() {
     const track = document.getElementById('insta-track');
     if (!track) return;
@@ -311,9 +306,9 @@
     next?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
   }
 
-  // ── Boot ──────────────────────────────────────────────────
+  // Boot
   document.addEventListener('DOMContentLoaded', () => {
-    console.log('%c🐨 Precious Koala — made with love for little ones.', 'color:#E89A8A;font-size:1.1rem;font-weight:bold;');
+    console.log('%c🐨 Precious Koala. Made with love for little ones.', 'color:#E89A8A;font-size:1.1rem;font-weight:bold;');
     initNavToggle();
     initAddButtons();
     initCarousel();

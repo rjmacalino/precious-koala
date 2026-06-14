@@ -1,7 +1,4 @@
-/* ============================================================
-   Precious Koala — storefront styles
-   Palette pulled from the packaging artwork.
-   ============================================================ */
+/* storefront styles. palette taken from the packaging artwork. */
 
 :root {
   /* Brand palette */
@@ -72,7 +69,7 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
 }
 
-/* ── Buttons ── */
+/* Buttons */
 .btn {
   display: inline-block;
   border: 2px solid transparent;
@@ -129,7 +126,7 @@ img { max-width: 100%; display: block; }
 }
 .link-btn.center { display: block; text-align: center; margin-top: 0.75rem; }
 
-/* ── Header ── */
+/* Header */
 .site-header {
   position: sticky;
   top: 0;
@@ -218,7 +215,7 @@ img { max-width: 100%; display: block; }
   color: var(--orange);
 }
 
-/* ── Hero ── */
+/* Hero */
 .hero {
   background: var(--white);
   position: relative;
@@ -313,7 +310,7 @@ img { max-width: 100%; display: block; }
   filter: drop-shadow(0 24px 34px rgba(120, 100, 70, 0.22));
 }
 
-/* ── Trust strip ── */
+/* Trust strip */
 .trust-strip {
   background: var(--white);
   border-bottom: 1px solid var(--line);
@@ -337,7 +334,7 @@ img { max-width: 100%; display: block; }
 }
 .trust-strip .ico { font-size: 1.3rem; }
 
-/* ── Features ── */
+/* Features */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -360,7 +357,7 @@ img { max-width: 100%; display: block; }
 .feature h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
 .feature p { font-size: 0.9rem; color: var(--ink-soft); }
 
-/* ── Product grid + cards ── */
+/* Product grid + cards */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -437,7 +434,7 @@ img { max-width: 100%; display: block; }
 }
 .price { font-size: 1.2rem; font-weight: 800; color: var(--coral-dark); }
 
-/* ── Product detail ── */
+/* Product detail */
 .detail-wrap {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -481,7 +478,7 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 
-/* ── Qty control ── */
+/* Qty control */
 .qty-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
 .qty-row label { font-weight: 600; }
 .qty-control {
@@ -515,7 +512,7 @@ img { max-width: 100%; display: block; }
 .qty-control.small button { width: 2rem; height: 2rem; font-size: 1rem; }
 .qty-control.small input { width: 2.4rem; }
 
-/* ── Cart ── */
+/* Cart */
 .cart-grid { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
 .cart-list { display: flex; flex-direction: column; gap: 1rem; }
 .cart-row {
@@ -579,7 +576,7 @@ img { max-width: 100%; display: block; }
 .cart-empty h2 { margin-bottom: 0.5rem; }
 .cart-empty p { color: var(--ink-soft); margin-bottom: 1.5rem; }
 
-/* ── Page header band ── */
+/* Page header band */
 .page-band {
   background: linear-gradient(135deg, var(--yellow-soft), var(--blue-soft));
   text-align: center;
@@ -590,7 +587,7 @@ img { max-width: 100%; display: block; }
 .breadcrumb { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.5rem; }
 .breadcrumb a:hover { color: var(--coral-dark); }
 
-/* ── CTA banner ── */
+/* CTA banner */
 .cta-band {
   background: var(--coral);
   color: var(--white);
@@ -606,7 +603,7 @@ img { max-width: 100%; display: block; }
 }
 .cta-band .btn-primary:hover { background: var(--cream); border-color: var(--cream); }
 
-/* ── Footer ── */
+/* Footer */
 .site-footer {
   background: var(--ink);
   color: var(--cream);
@@ -633,7 +630,7 @@ img { max-width: 100%; display: block; }
   color: rgba(255,250,240,0.6);
 }
 
-/* ── Toast ── */
+/* Toast */
 .toast {
   position: fixed;
   bottom: 1.5rem;
@@ -651,7 +648,7 @@ img { max-width: 100%; display: block; }
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
 
-/* ── Responsive ── */
+/* Responsive */
 @media (max-width: 860px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-desc { margin-left: auto; margin-right: auto; }
@@ -685,9 +682,7 @@ img { max-width: 100%; display: block; }
   .footer-inner { grid-template-columns: 1fr; }
 }
 
-/* ============================================================
-   Our Commitment
-   ============================================================ */
+/* Our Commitment */
 .commitment {
   background: linear-gradient(180deg, var(--cream) 0%, #fff7d6 100%);
   padding: 5rem 0;
@@ -767,9 +762,7 @@ img { max-width: 100%; display: block; }
 }
 .commit-list h3 { font-size: 0.98rem; font-weight: 700; color: var(--ink); line-height: 1.3; }
 
-/* ============================================================
-   Our Insta Shots — carousel
-   ============================================================ */
+/* Our Insta Shots carousel */
 .insta { position: relative; padding: 5rem 0; background: var(--white); overflow: hidden; }
 .insta-title { color: var(--orange); text-transform: uppercase; letter-spacing: 0.03em; }
 .insta-title::after { display: none; }
@@ -826,9 +819,7 @@ img { max-width: 100%; display: block; }
 .carousel-btn:hover { background: var(--orange); color: var(--white); transform: scale(1.08); }
 .carousel-btn:focus-visible { outline: 3px solid var(--orange-2); outline-offset: 2px; }
 
-/* ============================================================
-   FAQ accordion + About page
-   ============================================================ */
+/* FAQ accordion + About page */
 .faq-wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.85rem; }
 .faq-item {
   background: var(--white);
@@ -894,7 +885,7 @@ img { max-width: 100%; display: block; }
   padding: 0.4rem 1rem; border-radius: 2rem; margin-bottom: 1rem;
 }
 
-/* ── Responsive: new sections ── */
+/* Responsive: new sections */
 @media (max-width: 860px) {
   .commitment-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .commitment-media { max-width: 420px; margin: 0 auto; }

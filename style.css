@@ -354,6 +354,19 @@ img { max-width: 100%; display: block; }
   display: block;
   margin-bottom: 0.75rem;
 }
+.feature .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin: 0 auto 0.75rem;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
 .feature h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
 .feature p { font-size: 0.9rem; color: var(--ink-soft); }
 

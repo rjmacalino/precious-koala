@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   title: 'Precious Koala | Baby Products',
   description: 'Premium breast milk storage bags for Melbourne parents.',
   icons: {
-    icon: '/assets/logo.png',
-    apple: '/assets/logo.png',
+    icon: '/assets/logokoala.png',
+    apple: '/assets/logokoala.png',
   },
 };
 

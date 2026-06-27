@@ -6,3 +6,4 @@ out/
 
 # Original full-size camera photos (we ship the optimised versions instead)
 assets/APR*.jpg
+assets/

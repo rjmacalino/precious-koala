@@ -120,7 +120,7 @@ img { max-width: 100%; display: block; }
 
 /* push page content below fixed header (banner ~38px + nav ~78px = ~116px) */
 main { padding-top: 7.25rem; }
-.header-inner { max-width: 1240px; margin: 0 auto; padding: 0.6rem 1.75rem; display: flex; align-items: center; gap: 1rem; }
+.header-inner { padding: 0.6rem 3rem; display: flex; align-items: center; gap: 1rem; }
 .brand { display: flex; align-items: center; gap: 0.55rem; }
 .brand img { height: 56px; width: auto; }
 .brand-text { font-size: 1.25rem; font-family: Georgia, 'Times New Roman', serif; color: var(--ink); letter-spacing: 0.02em; }
@@ -144,14 +144,14 @@ main { padding-top: 7.25rem; }
 
 /* Hero — full viewport height */
 .hero { background: var(--white); min-height: calc(100vh - 7.25rem); display: flex; flex-direction: column; }
-/* no max-width — hero-visual fills the right 48% of the viewport */
+/* full-width — content reaches both edges with flat padding */
 .hero-inner {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 48vw;
   gap: 0;
   align-items: center;
-  padding: 4.5rem 0 5rem max(1.75rem, calc((100vw - 1240px) / 2 + 1.75rem));
+  padding: 4.5rem 0 5rem 3rem;
 }
 .hero-pretitle { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 0.15rem; }
 .hero-text h1 { font-size: clamp(2.8rem, 7.5vw, 5rem); line-height: 1; font-weight: 500; color: var(--ink); margin-bottom: 1.5rem; }

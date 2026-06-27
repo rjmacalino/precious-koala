@@ -3,10 +3,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 
 export default function Header() {
   const { count } = useCart();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -16,8 +19,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // transparent only on homepage before scroll — everywhere else always show white bg
+  const isTransparent = isHome && !scrolled;
+
   return (
-    <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
+    <header className={`site-header${!isTransparent ? ' scrolled' : ''}`}>
       {/* demo banner is inside the fixed header so it scrolls with it */}
       <div className="demo-banner">
         <strong>Demo store</strong> — no real payments. Checkout uses test card{' '}

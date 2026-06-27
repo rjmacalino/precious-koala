@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-export const metadata = undefined; // can't export metadata from client component — that's fine
-
 const FAQS = [
   {
     q: 'Are the bags pre-sterilised?',

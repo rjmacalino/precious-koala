@@ -127,7 +127,7 @@ main { padding-top: 7.25rem; }
 .brand-text { font-size: 1.25rem; font-family: Georgia, 'Times New Roman', serif; color: var(--ink); letter-spacing: 0.02em; }
 /* desktop order: logo(1) → nav(2, pushes right via auto margin) → icons(3) */
 .brand { order: 1; }
-.nav-menu { order: 2; display: flex; align-items: center; gap: 2.25rem; margin-left: auto; }
+.nav-menu { order: 2; display: flex; align-items: center; gap: 3.5rem; margin-left: auto; }
 .nav-menu a { font-size: 1rem; font-weight: 600; color: var(--orange); transition: color 0.2s; }
 .nav-menu a:hover { color: var(--orange-dark); }
 .header-actions { order: 3; display: flex; align-items: center; gap: 1.25rem; margin-left: 1.5rem; }

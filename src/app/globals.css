@@ -25,7 +25,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; }
 body {
   font-family: var(--font-main, 'Segoe UI', system-ui, sans-serif);
   color: var(--ink);
@@ -98,10 +99,12 @@ img { max-width: 100%; display: block; }
 }
 .btn-shop:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(242,168,58,0.5); }
 
-/* Header */
+/* Header — fixed so hero circles bleed through when transparent */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   background: transparent;
   border-bottom: 1px solid transparent;
@@ -113,6 +116,9 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid #f3f3f3;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
+
+/* push page content below fixed header (banner ~38px + nav ~78px = ~116px) */
+main { padding-top: 7.25rem; }
 .header-inner { max-width: 1240px; margin: 0 auto; padding: 0.6rem 1.75rem; display: flex; align-items: center; gap: 1rem; }
 .brand { display: flex; align-items: center; gap: 0.55rem; }
 .brand img { height: 56px; width: auto; }
@@ -130,7 +136,7 @@ img { max-width: 100%; display: block; }
 .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--orange); padding: 0; flex-shrink: 0; }
 
 /* Hero */
-.hero { background: var(--white); overflow: hidden; }
+.hero { background: var(--white); }
 .hero-inner { max-width: 1240px; margin: 0 auto; padding: 4.5rem 1.75rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
 .hero-pretitle { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 0.15rem; }
 .hero-text h1 { font-size: clamp(2.8rem, 7.5vw, 5rem); line-height: 1; color: var(--ink); margin-bottom: 1.5rem; }
@@ -150,7 +156,7 @@ img { max-width: 100%; display: block; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(960px, 180%);
+  width: min(1320px, 230%);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: radial-gradient(circle,
@@ -616,7 +622,7 @@ img { max-width: 100%; display: block; }
     padding: 1.5rem 0 3rem;
   }
   /* make circles fill more of the mobile width */
-  .hero-visual::before { width: min(960px, 120vw); }
+  .hero-visual::before { width: min(1320px, 140vw); }
 
   .features-grid, .product-grid { grid-template-columns: 1fr; }
   .cart-row { grid-template-columns: 70px 1fr; grid-auto-flow: row; }

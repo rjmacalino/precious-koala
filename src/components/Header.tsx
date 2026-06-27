@@ -18,6 +18,12 @@ export default function Header() {
 
   return (
     <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
+      {/* demo banner is inside the fixed header so it scrolls with it */}
+      <div className="demo-banner">
+        <strong>Demo store</strong> — no real payments. Checkout uses test card{' '}
+        <code>4242 4242 4242 4242</code> with any future date / CVC.
+      </div>
+
       <div className="header-inner">
 
         {/* hamburger — always left */}

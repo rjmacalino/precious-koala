@@ -4,7 +4,6 @@ import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import DemoBanner from '@/components/DemoBanner';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -26,7 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={montserrat.variable}>
       <body>
         <CartProvider>
-          <DemoBanner />
           <Header />
           <main>{children}</main>
           <Footer />

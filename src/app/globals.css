@@ -141,10 +141,10 @@ img { max-width: 100%; display: block; }
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: radial-gradient(circle,
-    rgba(255,189,89,0.55) 0%,  rgba(255,189,89,0.55) 26%,
-    rgba(255,204,69,0.32) 26%, rgba(255,204,69,0.32) 44%,
-    rgba(254,242,170,0.65) 44%, rgba(254,242,170,0.65) 64%,
-    rgba(254,242,170,0.00) 64%);
+    rgba(255,188,88,0.75) 0%,  rgba(255,188,88,0.75) 26%,
+    rgba(234,158,46,0.55) 26%, rgba(234,158,46,0.55) 44%,
+    rgba(255,188,88,0.28) 44%, rgba(255,188,88,0.28) 64%,
+    rgba(255,188,88,0.00) 64%);
   z-index: 0;
   pointer-events: none;
 }

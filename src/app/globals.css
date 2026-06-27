@@ -145,16 +145,14 @@ main { padding-top: 7.25rem; }
 
 /* Hero — full viewport height */
 .hero { background: var(--white); min-height: calc(100vh - 7.25rem); display: flex; flex-direction: column; }
-/* full-width — content reaches both edges with flat padding */
+/* hero is full-width — left text aligns with the centered container, right column bleeds to edge */
 .hero-inner {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 48vw;
   gap: 0;
   align-items: center;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 4.5rem var(--pad) 5rem var(--pad);
+  padding: 4.5rem 0 5rem max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad)));
 }
 .hero-pretitle { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 0.15rem; }
 .hero-text h1 { font-size: clamp(2.8rem, 7.5vw, 5rem); line-height: 1; font-weight: 500; color: var(--ink); margin-bottom: 1.5rem; }

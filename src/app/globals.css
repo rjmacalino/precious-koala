@@ -133,21 +133,22 @@ main { padding-top: 7.25rem; }
 .icon-btn { position: relative; color: var(--orange); display: inline-flex; transition: color 0.2s, transform 0.15s; cursor: pointer; background: none; border: none; padding: 0; }
 .icon-btn:hover { color: var(--orange-dark); transform: translateY(-1px); }
 
-/* transparent header — white links/icons over the orange circles */
-.site-header:not(.scrolled) .nav-menu a { color: #fff; }
-.site-header:not(.scrolled) .nav-menu a:hover { color: rgba(255,255,255,0.75); }
-.site-header:not(.scrolled) .icon-btn { color: #fff; }
-.site-header:not(.scrolled) .nav-toggle { color: #fff; }
+/* transparent header — brand gold so links pop against the circles */
+.site-header:not(.scrolled) .nav-menu a { color: #ffbd59; }
+.site-header:not(.scrolled) .nav-menu a:hover { color: #fff; }
+.site-header:not(.scrolled) .icon-btn { color: #ffbd59; }
+.site-header:not(.scrolled) .nav-toggle { color: #ffbd59; }
 .cart-link { position: relative; }
 .cart-count { position: absolute; top: -6px; right: -8px; background: var(--orange); color: var(--white); font-size: 0.65rem; font-weight: 700; min-width: 1.05rem; height: 1.05rem; padding: 0 0.3rem; border-radius: 1rem; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--white); }
 .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--orange); padding: 0; flex-shrink: 0; }
 
-/* Hero */
-.hero { background: var(--white); }
-/* no max-width — let hero-visual fill the right 45% of the viewport */
+/* Hero — full viewport height */
+.hero { background: var(--white); min-height: calc(100vh - 7.25rem); display: flex; flex-direction: column; }
+/* no max-width — hero-visual fills the right 48% of the viewport */
 .hero-inner {
+  flex: 1;
   display: grid;
-  grid-template-columns: 1fr 45vw;
+  grid-template-columns: 1fr 48vw;
   gap: 0;
   align-items: center;
   padding: 4.5rem 0 5rem max(1.75rem, calc((100vw - 1240px) / 2 + 1.75rem));
@@ -351,8 +352,8 @@ main { padding-top: 7.25rem; }
 }
 .orange-band-text p:not(.orange-band-eyebrow) { color: rgba(255,255,255,0.85); margin-bottom: 0; }
 /* btn on orange background needs a contrasting fill */
-.orange-band .btn-shop { background: #fef09e; color: var(--ink); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
-.orange-band .btn-shop:hover { background: #f5e070; color: var(--ink); }
+.orange-band .btn-shop { background: #fef09e; color: #fff; box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+.orange-band .btn-shop:hover { background: #f5e070; color: #fff; }
 .orange-band-eyebrow {
   color: rgba(255,255,255,0.9);
   font-size: 1rem;

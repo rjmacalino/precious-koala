@@ -96,7 +96,7 @@ img { max-width: 100%; display: block; }
 .header-inner { max-width: 1240px; margin: 0 auto; padding: 0.6rem 1.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand { display: flex; align-items: center; gap: 0.55rem; }
 .brand img { height: 56px; width: auto; }
-.brand-text { font-size: 1.15rem; font-family: Georgia, 'Times New Roman', serif; color: var(--ink); }
+.brand-text { font-size: 1.25rem; font-family: Georgia, 'Times New Roman', serif; color: var(--ink); letter-spacing: 0.02em; }
 .nav-menu { display: flex; align-items: center; gap: 2.25rem; }
 .nav-menu a { font-size: 1rem; font-weight: 600; color: var(--orange); transition: color 0.2s; }
 .nav-menu a:hover { color: var(--orange-dark); }
@@ -119,9 +119,9 @@ img { max-width: 100%; display: block; }
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: radial-gradient(circle,
-    rgba(255,189,89,0.30) 0%, rgba(255,189,89,0.30) 25%,
-    rgba(255,204,69,0.22) 25%, rgba(255,204,69,0.22) 43%,
-    rgba(254,242,170,0.55) 43%, rgba(254,242,170,0.55) 64%,
+    rgba(255,189,89,0.55) 0%,  rgba(255,189,89,0.55) 26%,
+    rgba(255,204,69,0.32) 26%, rgba(255,204,69,0.32) 44%,
+    rgba(254,242,170,0.65) 44%, rgba(254,242,170,0.65) 64%,
     rgba(254,242,170,0.00) 64%);
   z-index: 0;
   pointer-events: none;

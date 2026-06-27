@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PRODUCTS } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
+import InstaCarousel from '@/components/InstaCarousel';
+import NewsletterForm from '@/components/NewsletterForm';
 
 export default function HomePage() {
   return (
@@ -64,7 +66,7 @@ export default function HomePage() {
             <span className="deco-dots" aria-hidden="true" />
             <Image
               src="/assets/commitment.jpg"
-              alt="A Precious Koala breast milk storage bag held in hand"
+              alt="A Precious Koala breast milk storage bag"
               width={480}
               height={600}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -85,6 +87,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Orange feature band */}
+      <section className="orange-band">
+        <span className="orange-band-deco" aria-hidden="true" />
+        <div className="container orange-band-inner">
+          <div className="orange-band-text">
+            <p className="orange-band-eyebrow">Premium Quality</p>
+            <h2>Trusted by Thousands<br />of Australian Mums</h2>
+            <p>Our breast milk storage bags are designed to keep every precious drop safe, fresh, and ready when your baby needs it most.</p>
+            <Link href="/products" className="btn-shop" style={{ marginTop: '1.5rem' }}>SHOP NOW</Link>
+          </div>
+          <div className="orange-band-visual">
+            <div className="orange-band-blob">
+              <Image
+                src="/assets/banner.png"
+                alt="Precious Koala Breast Milk Storage Bags"
+                width={420}
+                height={340}
+                style={{ width: '100%', height: 'auto', position: 'relative', zIndex: 1 }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How to use */}
       <section className="section">
         <div className="container">
@@ -93,36 +119,77 @@ export default function HomePage() {
             <p>From fridge to feed in a few easy steps.</p>
           </div>
           <div className="features-grid">
-            <div className="feature"><span className="step-num" aria-hidden="true">1</span><h3>Sterilise &amp; Wash</h3><p>Prepare your area, sterilise tools and surfaces, and wash hands thoroughly.</p></div>
-            <div className="feature"><span className="step-num" aria-hidden="true">2</span><h3>Fill &amp; Seal</h3><p>Remove the perforated tab, pour in breast milk and reseal with the double zip.</p></div>
-            <div className="feature"><span className="step-num" aria-hidden="true">3</span><h3>Freeze &amp; Serve</h3><p>Store flat in the freezer. To serve, defrost in warm water and pour into a bottle.</p></div>
+            <div className="feature"><span className="step-num">1</span><h3>Sterilise &amp; Wash</h3><p>Prepare your area, sterilise tools and surfaces, and wash hands thoroughly.</p></div>
+            <div className="feature"><span className="step-num">2</span><h3>Fill &amp; Seal</h3><p>Remove the perforated tab, pour in breast milk and reseal with the double zip.</p></div>
+            <div className="feature"><span className="step-num">3</span><h3>Freeze &amp; Serve</h3><p>Store flat in the freezer. To serve, defrost in warm water and pour into a bottle.</p></div>
           </div>
         </div>
       </section>
 
-      {/* Insta grid */}
+      {/* Insta shots carousel */}
       <section className="insta">
         <span className="insta-dots insta-dots-l" aria-hidden="true" />
         <span className="insta-dots insta-dots-r" aria-hidden="true" />
         <div className="container">
           <div className="section-head">
-            <h2 className="insta-title">Our Insta Shots</h2>
+            <h2 className="insta-title">OUR INSTA SHOTS</h2>
+            <p>Real mums, real moments. Follow us for more.</p>
           </div>
-          <div className="insta-grid">
-            {[1,2,3,4,5].map(n => (
-              <div key={n} className="insta-card">
-                <Image src={`/assets/insta-${n}.jpg`} alt={`Customer photo ${n}`} width={200} height={200} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            ))}
+          <InstaCarousel />
+        </div>
+      </section>
+
+      {/* Customer reviews */}
+      <section className="reviews-section">
+        <div className="container">
+          <div className="section-head">
+            <h2 className="reviews-title">WHAT OUR <span>CUSTOMER</span> SAY</h2>
+            <p>Real feedback from real parents across Australia.</p>
+          </div>
+          <div className="reviews-grid">
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <h3>Great product, easy to use</h3>
+              <p>These bags are fantastic. The double-zip is so secure and the temperature indicator is genuinely useful. Worth every cent.</p>
+              <span className="review-author">Sarah M.</span>
+            </div>
+            <div className="review-card review-card-featured">
+              <span className="review-quote">&ldquo;</span>
+              <div className="review-stars">★★★★★</div>
+              <h3>Best storage bags I&apos;ve tried</h3>
+              <p>I&apos;ve tried three different brands and Precious Koala is by far the best. Self-standing, no leaks, and they stack perfectly in the freezer.</p>
+              <span className="review-author">Emma T.</span>
+            </div>
+          </div>
+          <div className="reviews-dots">
+            <span className="reviews-dot active" /><span className="reviews-dot" /><span className="reviews-dot" /><span className="reviews-dot" />
           </div>
         </div>
       </section>
 
-      {/* CTA band */}
-      <section className="cta-band">
-        <h2>Ready to stock up?</h2>
-        <p>Join 2,000+ Australian parents who trust Precious Koala.</p>
-        <Link href="/products" className="btn btn-primary">Shop Now</Link>
+      {/* Newsletter */}
+      <section className="newsletter-section">
+        <span className="newsletter-deco" aria-hidden="true" />
+        <div className="newsletter-inner">
+          <p className="newsletter-eyebrow">News Letter</p>
+          <h2>SIGN UP FOR OUR LATEST NEWS</h2>
+          <div className="newsletter-divider" />
+          <NewsletterForm />
+        </div>
+      </section>
+
+      {/* Video promo band */}
+      <section className="video-band">
+        <div className="video-band-left">
+          <p className="video-band-eyebrow">The Baby Shop</p>
+          <h2>Premium Baby Products<br />You Can Trust</h2>
+        </div>
+        <div className="video-band-right">
+          <Image src="/assets/logo.png" alt="Precious Koala" width={160} height={160} style={{ opacity: 0.35 }} />
+          <button className="play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
       </section>
     </>
   );

@@ -45,7 +45,8 @@ ul { list-style: none; }
 img { max-width: 100%; display: block; }
 
 .container { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
-.section { padding: 5rem 0; }
+/* all sections sit above the hero circles that bleed out of the hero */
+.section { position: relative; z-index: 1; padding: 5rem 0; background: var(--white); }
 .section-head { text-align: center; margin-bottom: 3rem; }
 .section-head h2 { font-size: clamp(1.75rem, 4vw, 2.6rem); color: var(--ink); margin-bottom: 0.75rem; }
 .section-head p { color: var(--ink-soft); max-width: 520px; margin: 0 auto; font-size: 1.05rem; }
@@ -131,6 +132,11 @@ main { padding-top: 7.25rem; }
 .header-actions { order: 3; display: flex; align-items: center; gap: 1.25rem; margin-left: 1.5rem; }
 .icon-btn { position: relative; color: var(--orange); display: inline-flex; transition: color 0.2s, transform 0.15s; cursor: pointer; background: none; border: none; padding: 0; }
 .icon-btn:hover { color: var(--orange-dark); transform: translateY(-1px); }
+
+/* when header is transparent (at top), darken links so they read against orange circles */
+.site-header:not(.scrolled) .nav-menu a { color: var(--ink); }
+.site-header:not(.scrolled) .nav-menu a:hover { color: var(--orange-dark); }
+.site-header:not(.scrolled) .icon-btn { color: var(--ink); }
 .cart-link { position: relative; }
 .cart-count { position: absolute; top: -6px; right: -8px; background: var(--orange); color: var(--white); font-size: 0.65rem; font-weight: 700; min-width: 1.05rem; height: 1.05rem; padding: 0 0.3rem; border-radius: 1rem; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--white); }
 .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--orange); padding: 0; flex-shrink: 0; }
@@ -139,7 +145,7 @@ main { padding-top: 7.25rem; }
 .hero { background: var(--white); }
 .hero-inner { max-width: 1240px; margin: 0 auto; padding: 4.5rem 1.75rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
 .hero-pretitle { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 0.15rem; }
-.hero-text h1 { font-size: clamp(2.8rem, 7.5vw, 5rem); line-height: 1; color: var(--ink); margin-bottom: 1.5rem; }
+.hero-text h1 { font-size: clamp(2.8rem, 7.5vw, 5rem); line-height: 1; font-weight: 500; color: var(--ink); margin-bottom: 1.5rem; }
 .hero-desc { font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 2.25rem; max-width: 460px; line-height: 1.75; }
 .hero-desc .accent { color: var(--orange); font-weight: 700; }
 
@@ -160,17 +166,17 @@ main { padding-top: 7.25rem; }
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: radial-gradient(circle,
-    rgba(255,188,88,0.75) 0%,  rgba(255,188,88,0.75) 26%,
-    rgba(234,158,46,0.55) 26%, rgba(234,158,46,0.55) 44%,
-    rgba(255,188,88,0.28) 44%, rgba(255,188,88,0.28) 64%,
+    rgba(255,188,88,0.72) 0%,  rgba(255,188,88,0.72) 26%,
+    rgba(234,158,46,0.32) 26%, rgba(234,158,46,0.32) 44%,
+    rgba(255,188,88,0.18) 44%, rgba(255,188,88,0.18) 64%,
     rgba(255,188,88,0.00) 64%);
   z-index: 0;
   pointer-events: none;
 }
 .hero-visual img { position: relative; z-index: 1; width: min(540px, 100%); height: auto; filter: drop-shadow(0 24px 34px rgba(120,100,70,0.22)); }
 
-/* Trust strip */
-.trust-strip { background: var(--yellow-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+/* Trust strip — sits on top of hero circles to clip their bottom overflow */
+.trust-strip { position: relative; z-index: 1; background: var(--yellow-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .trust-strip ul { max-width: var(--max); margin: 0 auto; padding: 1rem 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 0.75rem 1rem; }
 .trust-strip li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 700; color: var(--ink); letter-spacing: 0.01em; }
 .trust-strip li::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }

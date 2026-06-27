@@ -4,6 +4,5 @@ out/
 .env.local
 .env
 
-# Original full-size camera photos (we ship the optimised versions instead)
-assets/APR*.jpg
-assets/
+# root-level assets folder (old vanilla JS location)
+/assets/

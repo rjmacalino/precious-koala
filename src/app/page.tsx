@@ -76,12 +76,42 @@ export default function HomePage() {
             <h2 className="commitment-title">Our Commitment</h2>
             <p className="commitment-sub">Precious Koala is dedicated to providing the best and safest eco-friendly baby products.</p>
             <ul className="commit-list" role="list">
-              <li><span className="commit-ico" aria-hidden="true">🌿</span><h3>Recyclable, Eco-Friendly Material</h3></li>
-              <li><span className="commit-ico" aria-hidden="true">🧊</span><h3>Large Capacity Fresh-Keeping Breastmilk</h3></li>
-              <li><span className="commit-ico" aria-hidden="true">🧴</span><h3>Self-Standing Base Suitable for Deep Freezer</h3></li>
-              <li><span className="commit-ico" aria-hidden="true">☀️</span><h3>Gamma-Ray Pre-Sterilised</h3></li>
-              <li><span className="commit-ico" aria-hidden="true">🌡️</span><h3>Smart Temperature Indicator</h3></li>
-              <li><span className="commit-ico" aria-hidden="true">🔒</span><h3>Double Zip Closure and Tamper-Evident Safety Seal</h3></li>
+              <li>
+                <span className="commit-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 22c0-5.5 4.5-10 10-10s10 4.5 10 10"/><path d="M12 12C12 7 8 3 3 3c0 5 3.5 9 9 9z"/><path d="M12 12c0-5 4-9 9-9-0 5-4 9-9 9z"/></svg>
+                </span>
+                <h3>Recyclable, Eco-Friendly Material</h3>
+              </li>
+              <li>
+                <span className="commit-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                </span>
+                <h3>Large Capacity Fresh-Keeping Breastmilk</h3>
+              </li>
+              <li>
+                <span className="commit-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M8 2h8l1 6H7L8 2z"/><path d="M7 8l-2 14h14L17 8"/><line x1="12" y1="11" x2="12" y2="18"/></svg>
+                </span>
+                <h3>Self-Standing Base Suitable for Deep Freezer</h3>
+              </li>
+              <li>
+                <span className="commit-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </span>
+                <h3>Gamma-Ray Pre-Sterilised</h3>
+              </li>
+              <li>
+                <span className="commit-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg>
+                </span>
+                <h3>Smart Temperature Indicator</h3>
+              </li>
+              <li>
+                <span className="commit-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                </span>
+                <h3>Double Zip Closure and Tamper-Evident Safety Seal</h3>
+              </li>
             </ul>
           </div>
         </div>

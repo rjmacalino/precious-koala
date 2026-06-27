@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PRODUCTS, getProduct } from '@/data/products';
 import AddToCartButton from './AddToCartButton';
 
-// next.js 15: params is a promise in async server components
 export async function generateStaticParams() {
   return PRODUCTS.map(p => ({ id: p.id }));
 }
@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const product = getProduct(id);
-  return { title: product ? `${product.name} — Precious Koala` : 'Product not found' };
+  return { title: product ? `${product.name} — Precious Koala` : 'Not found' };
 }
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -20,42 +20,39 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   if (!product) notFound();
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        <div className="rounded-2xl overflow-hidden border border-line">
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={600}
-            height={450}
-            className="w-full object-cover"
-            priority
-          />
-        </div>
-
-        <div>
-          {product.badge && (
-            <span className="inline-block bg-orange text-ink text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">
-              {product.badge}
-            </span>
-          )}
-          <h1 className="text-2xl font-bold text-ink mb-1">{product.name}</h1>
-          <p className="text-ink-soft text-sm mb-4">{product.pack}</p>
-          <p className="text-3xl font-bold text-ink mb-5">${product.price.toFixed(2)}</p>
-          <p className="text-ink-soft leading-relaxed mb-6">{product.blurb}</p>
-
-          <ul className="mb-8 space-y-2">
-            {product.specs.map(s => (
-              <li key={s} className="flex items-center gap-2 text-sm text-ink">
-                <span className="w-4 h-4 rounded-full bg-orange flex-shrink-0" />
-                {s}
-              </li>
-            ))}
-          </ul>
-
-          <AddToCartButton productId={product.id} />
-        </div>
+    <>
+      <div className="page-band">
+        <p style={{ fontSize: '0.85rem', color: 'var(--ink-soft)' }}>
+          <Link href="/">Home</Link> / <Link href="/products">Shop</Link> / {product.name}
+        </p>
       </div>
-    </div>
+      <section className="section">
+        <div className="container">
+          <div className="detail-wrap">
+            <div className="detail-media">
+              {product.badge && <span className="card-badge">{product.badge}</span>}
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={400}
+                height={400}
+                style={{ maxHeight: '80%', width: 'auto' }}
+                priority
+              />
+            </div>
+            <div className="detail-info">
+              <h1>{product.name}</h1>
+              <p className="pack-label">{product.pack}</p>
+              <p className="detail-price">${product.price.toFixed(2)}</p>
+              <p className="detail-blurb">{product.blurb}</p>
+              <ul className="detail-specs" role="list">
+                {product.specs.map(s => <li key={s}>{s}</li>)}
+              </ul>
+              <AddToCartButton productId={product.id} />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -3,34 +3,25 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-sand border-t border-line mt-auto">
-      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-ink-soft">
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <Image src="/assets/logo.png" alt="Precious Koala" width={28} height={28} />
-            <span className="font-semibold text-ink">Precious Koala</span>
-          </div>
-          <p className="leading-relaxed">Premium baby products made with love, for Melbourne parents who deserve the best.</p>
+    <footer className="site-footer">
+      <div className="footer-inner">
+        <div className="footer-brand">
+          <Image src="/assets/logo.png" alt="Precious Koala" width={48} height={48} />
+          <p>Premium baby products made with love, for parents who deserve the best.</p>
         </div>
-
         <div>
-          <p className="font-semibold text-ink mb-3">Links</p>
-          <ul className="space-y-2">
-            <li><Link href="/products" className="hover:text-orange-dark transition-colors">Shop</Link></li>
-            <li><Link href="/about" className="hover:text-orange-dark transition-colors">About Us</Link></li>
-            <li><Link href="/faqs" className="hover:text-orange-dark transition-colors">FAQs</Link></li>
-            <li><Link href="/cart" className="hover:text-orange-dark transition-colors">Cart</Link></li>
-          </ul>
+          <h4>Shop</h4>
+          <Link href="/products">All Products</Link>
+          <Link href="/cart">Cart</Link>
         </div>
-
         <div>
-          <p className="font-semibold text-ink mb-3">Get in touch</p>
-          <p>hello@preciouskoala.com.au</p>
-          <p className="mt-1">Melbourne, VIC, Australia</p>
+          <h4>Company</h4>
+          <Link href="/about">About Us</Link>
+          <Link href="/faqs">FAQs</Link>
         </div>
       </div>
-      <div className="border-t border-line py-4 text-center text-xs text-ink-soft">
-        &copy; {new Date().getFullYear()} Precious Koala. All rights reserved.
+      <div className="footer-bottom">
+        &copy; {new Date().getFullYear()} Precious Koala. All rights reserved. &middot; Melbourne, AU
       </div>
     </footer>
   );

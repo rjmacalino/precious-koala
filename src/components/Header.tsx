@@ -10,58 +10,37 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-line shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/assets/logo.png" alt="Precious Koala" width={36} height={36} />
-          <span className="font-semibold text-ink text-sm hidden sm:inline">Precious Koala</span>
+    <header className="site-header">
+      <div className="header-inner">
+        <Link href="/" className="brand" aria-label="Precious Koala home">
+          <Image src="/assets/logo.png" alt="Precious Koala" width={56} height={56} style={{ height: 56, width: 'auto' }} />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-ink">
-          <Link href="/products" className="hover:text-orange-dark transition-colors">Shop</Link>
-          <Link href="/about" className="hover:text-orange-dark transition-colors">About</Link>
-          <Link href="/faqs" className="hover:text-orange-dark transition-colors">FAQs</Link>
-        </nav>
+        <button
+          className="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(o => !o)}
+        >
+          {menuOpen ? '✕' : '☰'}
+        </button>
 
-        <div className="flex items-center gap-3">
-          <Link href="/cart" className="relative p-2 hover:text-orange-dark transition-colors" aria-label="Cart">
-            <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <path d="M16 10a4 4 0 01-8 0"/>
-            </svg>
-            {count > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-orange text-ink text-[10px] font-bold rounded-full flex items-center justify-center">
-                {count > 9 ? '9+' : count}
-              </span>
-            )}
-          </Link>
-
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-1"
-            onClick={() => setMenuOpen(o => !o)}
-            aria-label="Toggle menu"
-          >
-            <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              {menuOpen
-                ? <path d="M6 18L18 6M6 6l12 12"/>
-                : <path d="M3 12h18M3 6h18M3 18h18"/>
-              }
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-line bg-white px-4 py-3 flex flex-col gap-3 text-sm font-medium text-ink">
+        <nav className={`nav-menu${menuOpen ? ' open' : ''}`} aria-label="Primary">
+          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/products" onClick={() => setMenuOpen(false)}>Shop</Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
+          <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
           <Link href="/faqs" onClick={() => setMenuOpen(false)}>FAQs</Link>
-        </div>
-      )}
+          <span className="header-actions">
+            <Link href="/cart" className="icon-btn cart-link" aria-label="Cart">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/>
+                <path d="M2 3h2.2l2.4 12h11l2.4-9H6.5"/>
+              </svg>
+              {count > 0 && <span className="cart-count">{count > 9 ? '9+' : count}</span>}
+            </Link>
+          </span>
+        </nav>
+      </div>
     </header>
   );
 }

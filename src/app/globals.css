@@ -97,11 +97,12 @@ img { max-width: 100%; display: block; }
 .brand { display: flex; align-items: center; gap: 0.55rem; }
 .brand img { height: 56px; width: auto; }
 .brand-text { font-size: 1.25rem; font-family: Georgia, 'Times New Roman', serif; color: var(--ink); letter-spacing: 0.02em; }
-/* desktop: brand left, nav center (auto margin), actions right */
-.nav-menu { display: flex; align-items: center; gap: 2.25rem; margin-left: auto; }
+/* desktop order: logo(1) → nav(2, pushes right via auto margin) → icons(3) */
+.brand { order: 1; }
+.nav-menu { order: 2; display: flex; align-items: center; gap: 2.25rem; margin-left: auto; }
 .nav-menu a { font-size: 1rem; font-weight: 600; color: var(--orange); transition: color 0.2s; }
 .nav-menu a:hover { color: var(--orange-dark); }
-.header-actions { display: flex; align-items: center; gap: 1.25rem; margin-left: 1.5rem; }
+.header-actions { order: 3; display: flex; align-items: center; gap: 1.25rem; margin-left: 1.5rem; }
 .icon-btn { position: relative; color: var(--orange); display: inline-flex; transition: color 0.2s, transform 0.15s; cursor: pointer; background: none; border: none; padding: 0; }
 .icon-btn:hover { color: var(--orange-dark); transform: translateY(-1px); }
 .cart-link { position: relative; }

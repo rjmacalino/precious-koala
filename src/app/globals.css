@@ -149,10 +149,10 @@ main { padding-top: 7.25rem; }
 .hero-inner {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 48vw;
+  grid-template-columns: 1fr 52vw;
   gap: 0;
   align-items: center;
-  padding: 4.5rem 0 5rem max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad)));
+  padding: 4.5rem 0 5rem var(--pad);
 }
 .hero-pretitle { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 0.15rem; }
 .hero-text h1 { font-size: clamp(2.8rem, 7.5vw, 5rem); line-height: 1; font-weight: 500; color: var(--ink); margin-bottom: 1.5rem; }

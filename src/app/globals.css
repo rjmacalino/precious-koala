@@ -263,15 +263,6 @@ main { padding-top: 7.25rem; }
 .cta-band .btn-primary { background: var(--white); color: var(--coral-dark); border-color: var(--white); }
 .cta-band .btn-primary:hover { background: var(--cream); border-color: var(--cream); }
 
-/* Footer */
-.site-footer { background: var(--ink); color: var(--cream); padding: 3rem 1.5rem 1.5rem; }
-.footer-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2rem; }
-.footer-inner h4 { font-size: 0.95rem; margin-bottom: 0.85rem; color: var(--yellow); }
-.footer-inner a { color: rgba(255,250,240,0.8); font-size: 0.9rem; line-height: 1.9; display: block; }
-.footer-inner a:hover { color: var(--white); }
-.footer-brand p { color: rgba(255,250,240,0.7); font-size: 0.9rem; margin-top: 0.5rem; max-width: 280px; }
-.footer-bottom { max-width: var(--max); margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.12); text-align: center; font-size: 0.82rem; color: rgba(255,250,240,0.6); }
-
 /* Commitment */
 .commitment { background: linear-gradient(180deg, var(--cream) 0%, #fff7d6 100%); padding: 5rem 0; }
 .commitment-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 3.5rem; align-items: center; }
@@ -537,6 +528,7 @@ main { padding-top: 7.25rem; }
 }
 .footer-brand { display: flex; flex-direction: column; gap: 0.85rem; }
 .footer-logo { display: flex; align-items: center; gap: 0.6rem; }
+.footer-logo img { height: 54px; width: auto; }
 .footer-address { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.7; }
 .footer-socials { display: flex; gap: 0.6rem; margin-top: 0.25rem; }
 .social-icon {

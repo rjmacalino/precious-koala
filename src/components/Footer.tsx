@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="footer-brand">
           <div className="footer-logo">
-            <Image src="/assets/logo.png" alt="Precious Koala" width={52} height={52} />
+            <Image src="/assets/logo.png" alt="Precious Koala" width={233} height={54} style={{ height: 54, width: 'auto' }} />
           </div>
           <p className="footer-address">123 Somewhere Street,<br />Melbourne, VIC, Australia</p>
           <div className="footer-socials">

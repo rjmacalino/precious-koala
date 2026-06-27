@@ -1,8 +1,8 @@
-# Build tooling — not part of the deployed site
+.next/
 node_modules/
-package.json
-package-lock.json
-optimize-images.js
+out/
+.env.local
+.env
 
 # Original full-size camera photos (we ship the optimised versions instead)
 assets/APR*.jpg

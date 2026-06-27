@@ -250,7 +250,7 @@ main { padding-top: 7.25rem; }
 .cart-empty p { color: var(--ink-soft); margin-bottom: 1.5rem; }
 
 /* Page header band */
-.page-band { background: linear-gradient(135deg, var(--yellow-soft), var(--blue-soft)); text-align: center; padding: 3rem 1.5rem; }
+.page-band { background: linear-gradient(135deg, #fff8e8 0%, #fef3c7 60%, #fde68a 100%); text-align: center; padding: 3.5rem 1.5rem; position: relative; z-index: 1; }
 .page-band h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 0.4rem; }
 .page-band p { color: var(--ink-soft); }
 

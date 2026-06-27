@@ -14,7 +14,6 @@ export default function Header() {
       <div className="header-inner">
         <Link href="/" className="brand" aria-label="Precious Koala home">
           <Image src="/assets/logo.png" alt="Precious Koala logo" width={56} height={56} style={{ height: 56, width: 'auto' }} />
-          <span className="brand-text">Precious Koala</span>
         </Link>
 
         <button

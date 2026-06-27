@@ -9,7 +9,6 @@ export default function Footer() {
         <div className="footer-brand">
           <div className="footer-logo">
             <Image src="/assets/logo.png" alt="Precious Koala" width={52} height={52} />
-            <span className="brand-text">Precious Koala</span>
           </div>
           <p className="footer-address">123 Somewhere Street,<br />Melbourne, VIC, Australia</p>
           <div className="footer-socials">

@@ -47,7 +47,7 @@ export default function Header() {
         Mobile (< 621px): 3-col grid [hamburger | logo | icons] with nav dropdown spanning full width
         Desktop (≥ 621px): flex row [logo | nav (ml-auto) | icons]
       */}
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center px-4 py-2 sm:flex sm:items-center sm:gap-4 sm:px-[clamp(1.5rem,5vw,7rem)] sm:py-[0.6rem]">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center px-4 py-2 sm:flex sm:items-center sm:gap-4 sm:px-[clamp(4rem,8vw,12rem)] sm:py-[0.6rem]">
 
         {/* hamburger — mobile only */}
         <button

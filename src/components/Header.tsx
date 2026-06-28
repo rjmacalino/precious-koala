@@ -106,7 +106,7 @@ export default function Header() {
             menuOpen ? 'flex' : 'hidden',
             // desktop: inline flex row
             'sm:flex sm:flex-row sm:col-auto sm:ml-auto sm:gap-14 sm:order-2',
-            'sm:bg-transparent sm:border-none sm:px-0 sm:py-0 sm:mx-0 sm:items-center'
+            'sm:bg-transparent sm:border-none sm:px-0 sm:py-0 sm:mr-0 sm:items-center'
           )}
           aria-label="Primary"
         >

@@ -58,7 +58,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  /* justify-content controlled by Tailwind classes on the element */
+  justify-content: center;
 }
 .hero-visual::before {
   content: '';

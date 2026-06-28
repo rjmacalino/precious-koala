@@ -22,11 +22,9 @@ export default function Header() {
   // transparent treatment only on the homepage before scroll
   const isTransparent = pathname === '/' && !scrolled;
 
-  const iconClass = cn(
-    'relative inline-flex cursor-pointer bg-transparent border-none p-0',
-    'transition-[color,transform] duration-200 hover:-translate-y-px',
-    isTransparent ? 'text-white' : 'text-orange hover:text-orange-dark'
-  );
+  const iconClass =
+    'relative inline-flex cursor-pointer bg-transparent border-none p-0 ' +
+    'text-orange hover:text-orange-dark transition-[color,transform] duration-200 hover:-translate-y-px';
 
   return (
     <header
@@ -51,10 +49,7 @@ export default function Header() {
 
         {/* hamburger — mobile only */}
         <button
-          className={cn(
-            'justify-self-start sm:hidden bg-transparent border-none text-[1.5rem] cursor-pointer p-0 leading-none',
-            isTransparent ? 'text-white' : 'text-orange'
-          )}
+          className="justify-self-start sm:hidden bg-transparent border-none text-orange text-[1.5rem] cursor-pointer p-0 leading-none"
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(o => !o)}

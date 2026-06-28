@@ -30,7 +30,7 @@ export default function HomePage() {
             <Link href="/products" className="btn-shop">SHOP NOW</Link>
           </div>
 
-          <div className="hero-visual justify-center md:justify-end pb-12 pt-6 md:pt-0 md:pb-0">
+          <div className="hero-visual pb-12 pt-6 md:pt-0 md:pb-0 md:translate-x-10 xl:translate-x-16">
             <Image
               src="/assets/banner.png"
               alt="Precious Koala Breast Milk Storage Bags"

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { cn } from '@/lib/cn';
 
 const FAQS = [
   { q: 'Are the bags pre-sterilised?', a: 'Yes — every bag is gamma-ray sterilised before packaging, so you can use them straight out of the box without any boiling or steaming.' },
@@ -15,12 +16,31 @@ const FAQS = [
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="faq-item">
-      <button className="faq-q" onClick={() => setOpen(o => !o)}>
+    <div className="border border-line rounded-[1rem] overflow-hidden bg-white mb-3">
+      <button
+        className="w-full flex items-center justify-between px-6 py-5 text-left text-[1.02rem] font-bold text-ink cursor-pointer bg-transparent border-none transition-colors duration-200 hover:text-orange"
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+      >
         {q}
-        <span className={`faq-q-icon${open ? ' open' : ''}`}>+</span>
+        {/* keep faq-q-icon as class name if you wanna style it in CSS, but we just use inline rotation here */}
+        <span
+          className={cn(
+            'flex-shrink-0 w-[28px] h-[28px] rounded-full bg-orange text-white inline-flex items-center justify-center text-[1.4rem] leading-none transition-transform duration-300',
+            open && 'rotate-45'
+          )}
+          aria-hidden="true"
+        >
+          +
+        </span>
       </button>
-      {open && <div className="faq-body"><p>{a}</p></div>}
+      {/*
+        Always mounted so the max-height CSS transition can run.
+        Previously used {open && <div>} which unmounts the element and kills the animation.
+      */}
+      <div className={cn('faq-body', open && 'open')}>
+        <p className="text-ink-soft text-[0.97rem] leading-[1.7]">{a}</p>
+      </div>
     </div>
   );
 }
@@ -28,13 +48,14 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 export default function FaqsPage() {
   return (
     <>
-      <div className="page-band">
-        <h1>FAQs</h1>
-        <p>Everything you need to know about our products and service.</p>
+      {/* page-band */}
+      <div className="relative z-[1] bg-gradient-to-br from-[#fff8e8] via-[#fef3c7] to-[#fde68a] text-center py-12 px-6">
+        <h1 className="text-heading text-ink mb-2">FAQs</h1>
+        <p className="text-ink-soft text-[1.05rem]">Everything you need to know about our products and service.</p>
       </div>
-      <section className="section">
+      <section className="py-20">
         <div className="container">
-          <div className="faq-wrap">
+          <div className="max-w-[800px] mx-auto">
             {FAQS.map(f => <FaqItem key={f.q} q={f.q} a={f.a} />)}
           </div>
         </div>

@@ -21,16 +21,27 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   return (
     <>
-      <div className="page-band">
-        <p style={{ fontSize: '0.85rem', color: 'var(--ink-soft)' }}>
-          <Link href="/">Home</Link> / <Link href="/products">Shop</Link> / {product.name}
+      {/* page-band */}
+      <div className="relative z-[1] bg-gradient-to-br from-[#fff8e8] via-[#fef3c7] to-[#fde68a] py-8 px-6">
+        <p className="text-[0.85rem] text-ink-soft text-center">
+          <Link href="/" className="hover:text-orange transition-colors duration-200">Home</Link>
+          {' / '}
+          <Link href="/products" className="hover:text-orange transition-colors duration-200">Shop</Link>
+          {' / '}
+          <span className="text-ink font-semibold">{product.name}</span>
         </p>
       </div>
-      <section className="section">
+      <section className="py-16">
         <div className="container">
-          <div className="detail-wrap">
-            <div className="detail-media">
-              {product.badge && <span className="card-badge">{product.badge}</span>}
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
+
+            {/* product image */}
+            <div className="relative bg-gradient-to-br from-[#fff9ed] to-[#fff4d6] rounded-[1.5rem] overflow-hidden flex items-center justify-center aspect-square">
+              {product.badge && (
+                <span className="absolute top-[0.85rem] left-[0.85rem] bg-orange text-white text-[0.7rem] font-extrabold uppercase tracking-[0.06em] py-[0.3rem] px-[0.8rem] rounded-[1rem] shadow-[0_2px_8px_rgba(249,184,47,0.4)]">
+                  {product.badge}
+                </span>
+              )}
               <Image
                 src={product.image}
                 alt={product.name}
@@ -40,16 +51,24 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 priority
               />
             </div>
-            <div className="detail-info">
-              <h1>{product.name}</h1>
-              <p className="pack-label">{product.pack}</p>
-              <p className="detail-price">${product.price.toFixed(2)}</p>
-              <p className="detail-blurb">{product.blurb}</p>
-              <ul className="detail-specs" role="list">
-                {product.specs.map(s => <li key={s}>{s}</li>)}
+
+            {/* product info */}
+            <div>
+              <h1 className="text-[clamp(1.6rem,3.5vw,2.2rem)] font-extrabold text-ink mb-2">{product.name}</h1>
+              <p className="text-ink-soft text-[0.9rem] mb-4">{product.pack}</p>
+              <p className="text-[2rem] font-extrabold text-orange-dark mb-4">${product.price.toFixed(2)}</p>
+              <p className="text-ink-soft text-[0.97rem] leading-[1.75] mb-6">{product.blurb}</p>
+              <ul className="flex flex-col gap-2 mb-8" role="list">
+                {product.specs.map(s => (
+                  <li key={s} className="flex items-center gap-2 text-[0.93rem] text-ink-soft">
+                    <span className="w-[6px] h-[6px] rounded-full bg-orange flex-shrink-0 inline-block" aria-hidden="true" />
+                    {s}
+                  </li>
+                ))}
               </ul>
               <AddToCartButton productId={product.id} />
             </div>
+
           </div>
         </div>
       </section>

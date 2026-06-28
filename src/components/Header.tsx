@@ -120,15 +120,7 @@ export default function Header() {
               key={href}
               href={href}
               onClick={() => setMenuOpen(false)}
-              className={cn(
-                'text-base font-semibold transition-colors duration-200',
-                // mobile dropdown: always orange
-                'text-orange hover:text-orange-dark',
-                // desktop: white when transparent (over circles), else orange
-                isTransparent
-                  ? 'sm:text-white sm:hover:text-white/75'
-                  : 'sm:text-orange sm:hover:text-orange-dark'
-              )}
+              className="text-base font-semibold text-orange hover:text-orange-dark transition-colors duration-200"
             >
               {label}
             </Link>

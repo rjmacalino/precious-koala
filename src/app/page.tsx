@@ -9,12 +9,13 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-white flex flex-col">
+      {/* min-h fills the viewport so the trust strip is below the fold on widescreen */}
+      <section className="bg-white flex flex-col md:min-h-[calc(100vh-7.25rem)]">
         {/*
           Mobile: 1 col, text centered, image below
           md (≥861px): 2-col grid — text left, image right (viewport-relative column)
         */}
-        <div className="flex-1 grid grid-cols-1 items-start text-center pt-8 pb-0 px-5 md:grid-cols-[1fr_50vw] md:items-center md:text-left md:pt-[4.5rem] md:pb-20 md:pl-[clamp(4rem,8vw,12rem)] md:pr-0 lg:grid-cols-[1fr_54vw] xl:grid-cols-[1fr_64vw]">
+        <div className="flex-1 grid grid-cols-1 items-start text-center pt-8 pb-0 px-5 md:grid-cols-[1fr_52vw] md:items-center md:text-left md:pt-[4.5rem] md:pb-20 md:pl-[clamp(4rem,8vw,12rem)] md:pr-0 lg:grid-cols-[1fr_56vw] xl:grid-cols-[1fr_64vw]">
 
           <div>
             <p className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-bold text-orange leading-none mb-[0.15rem]">
@@ -30,7 +31,7 @@ export default function HomePage() {
             <Link href="/products" className="btn-shop">SHOP NOW</Link>
           </div>
 
-          <div className="hero-visual pb-12 pt-6 md:pt-0 md:pb-0 md:translate-x-10 xl:translate-x-16">
+          <div className="hero-visual pb-12 pt-6 md:pt-0 md:pb-0 md:translate-x-20 xl:translate-x-28">
             <Image
               src="/assets/banner.png"
               alt="Precious Koala Breast Milk Storage Bags"

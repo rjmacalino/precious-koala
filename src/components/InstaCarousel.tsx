@@ -12,6 +12,7 @@ export default function InstaCarousel() {
   const goTo = useCallback((next: number) => {
     const track = trackRef.current;
     if (!track) return;
+    // class name must stay so this querySelector keeps working
     const slide = track.querySelector('.insta-slide') as HTMLElement;
     if (!slide) return;
     const w = slide.offsetWidth + 20; // 20 = gap
@@ -19,16 +20,26 @@ export default function InstaCarousel() {
     track.scrollTo({ left: indexRef.current * w, behavior: 'smooth' });
   }, []);
 
-  // auto-advance every 3s
   useEffect(() => {
     const id = setInterval(() => goTo(indexRef.current + 1), 3000);
     return () => clearInterval(id);
   }, [goTo]);
 
+  const btnClass =
+    'flex-shrink-0 w-[54px] h-[54px] rounded-full border-2 border-orange bg-orange text-white ' +
+    'text-[2.2rem] leading-none cursor-pointer inline-flex items-center justify-center ' +
+    'transition-[background,transform] duration-200 ' +
+    'hover:bg-orange-dark hover:border-orange-dark hover:scale-[1.08] ' +
+    'focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#ffd166] focus-visible:outline-offset-2';
+
   return (
-    <div className="insta-carousel-wrap">
-      <button className="carousel-btn" onClick={() => goTo(indexRef.current - 1)} aria-label="Previous">&#8249;</button>
-      <div className="insta-carousel-track" ref={trackRef}>
+    <div className="flex items-center gap-4 mt-8">
+      <button className={btnClass} onClick={() => goTo(indexRef.current - 1)} aria-label="Previous">&#8249;</button>
+
+      <div
+        className="insta-carousel-track flex gap-[1.25rem] overflow-x-auto snap-x snap-mandatory flex-1 py-2 px-[0.25rem]"
+        ref={trackRef}
+      >
         {IMAGES.map(n => (
           <div key={n} className="insta-slide">
             <Image
@@ -41,7 +52,8 @@ export default function InstaCarousel() {
           </div>
         ))}
       </div>
-      <button className="carousel-btn" onClick={() => goTo(indexRef.current + 1)} aria-label="Next">&#8250;</button>
+
+      <button className={btnClass} onClick={() => goTo(indexRef.current + 1)} aria-label="Next">&#8250;</button>
     </div>
   );
 }

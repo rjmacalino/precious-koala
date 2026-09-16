@@ -101,7 +101,7 @@ export default function CartPage() {
                 Checkout
               </button>
               <p className="text-center text-[0.78rem] text-ink-soft mt-3">
-                Demo store — test card: 4242 4242 4242 4242
+                Demo store — checkout is not wired up yet.
               </p>
             </div>
 

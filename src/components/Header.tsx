@@ -37,8 +37,7 @@ export default function Header() {
     >
       {/* demo notice */}
       <div className="bg-[#fffbeb] border-b border-[#fde68a] py-2 px-4 text-center text-[0.82rem] text-[#92400e]">
-        <strong className="font-bold">Demo store</strong> — no real payments. Checkout uses test card{' '}
-        <code className="font-mono font-semibold">4242 4242 4242 4242</code> with any future date / CVC.
+        <strong className="font-bold">Demo store</strong> — browse freely, checkout is not wired up yet.
       </div>
 
       {/*

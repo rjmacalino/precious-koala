@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: koala-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: koala
+      POSTGRES_PASSWORD: koala_dev_password
+      POSTGRES_DB: koala
+    ports:
+      - "5432:5432"
+    volumes:
+      - koala-db-data:/var/lib/postgresql/data
+
+volumes:
+  koala-db-data:

@@ -6,3 +6,5 @@ out/
 
 # root-level assets folder (old vanilla JS location)
 /assets/
+
+/src/generated/prisma

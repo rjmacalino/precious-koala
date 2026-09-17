@@ -1,30 +1,37 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { PRODUCTS } from '@/data/products';
+import type { Product } from '@/types';
 
 const CART_KEY = 'pk_cart'; // same key as v1 so old carts carry over
 
 interface CartContextValue {
   items: Record<string, number>;
+  products: Product[];
   add: (id: string) => void;
   remove: (id: string) => void;
   setQty: (id: string, qty: number) => void;
   clear: () => void;
   count: number;
-  total: number;
+  totalCents: number;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-function calcTotal(items: Record<string, number>): number {
+function calcTotalCents(items: Record<string, number>, products: Product[]): number {
   return Object.entries(items).reduce((sum, [id, qty]) => {
-    const p = PRODUCTS.find(p => p.id === id);
-    return p ? sum + p.price * qty : sum;
+    const p = products.find(p => p.id === id);
+    return p ? sum + p.priceCents * qty : sum;
   }, 0);
 }
 
-export function CartProvider({ children }: { children: React.ReactNode }) {
+export function CartProvider({
+  children,
+  products,
+}: {
+  children: React.ReactNode;
+  products: Product[];
+}) {
   const [items, setItems] = useState<Record<string, number>>({});
 
   useEffect(() => {
@@ -69,10 +76,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const clear = useCallback(() => save({}), [save]);
 
   const count = Object.values(items).reduce((s, n) => s + n, 0);
-  const total = calcTotal(items);
+  const totalCents = calcTotalCents(items, products);
 
   return (
-    <CartContext.Provider value={{ items, add, remove, setQty, clear, count, total }}>
+    <CartContext.Provider value={{ items, products, add, remove, setQty, clear, count, totalCents }}>
       {children}
     </CartContext.Provider>
   );

@@ -4,16 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
-import { PRODUCTS } from '@/data/products';
+import { formatCents } from '@/lib/money';
 
-const SHIPPING = 6.95;
+const SHIPPING_CENTS = 695;
 
 export default function CartPage() {
-  const { items, setQty, remove, total, count } = useCart();
+  const { items, products, setQty, remove, totalCents, count } = useCart();
   const router = useRouter();
 
   const cartItems = Object.entries(items)
-    .map(([id, qty]) => ({ product: PRODUCTS.find(p => p.id === id)!, qty }))
+    .map(([id, qty]) => ({ product: products.find(p => p.id === id)!, qty }))
     .filter(e => e.product);
 
   function handleCheckout() {
@@ -75,7 +75,7 @@ export default function CartPage() {
                     </div>
                   </div>
                   <div className="flex flex-col items-end gap-2">
-                    <span className="text-[1.15rem] font-extrabold text-orange-dark">${(product.price * qty).toFixed(2)}</span>
+                    <span className="text-[1.15rem] font-extrabold text-orange-dark">${formatCents(product.priceCents * qty)}</span>
                     <button className="link-btn text-[0.8rem]" onClick={() => remove(product.id)}>Remove</button>
                   </div>
                 </div>
@@ -87,15 +87,15 @@ export default function CartPage() {
               <h2 className="text-[1.2rem] font-extrabold mb-6">Order Summary</h2>
               <div className="flex justify-between py-3 border-b border-line text-[0.95rem]">
                 <span className="text-ink-soft">Subtotal</span>
-                <span className="font-semibold">${total.toFixed(2)}</span>
+                <span className="font-semibold">${formatCents(totalCents)}</span>
               </div>
               <div className="flex justify-between py-3 border-b border-line text-[0.95rem]">
                 <span className="text-ink-soft">Shipping</span>
-                <span className="font-semibold">${SHIPPING.toFixed(2)}</span>
+                <span className="font-semibold">${formatCents(SHIPPING_CENTS)}</span>
               </div>
               <div className="flex justify-between py-4 text-[1.1rem] font-extrabold">
                 <span>Total</span>
-                <span className="text-orange-dark">${(total + SHIPPING).toFixed(2)}</span>
+                <span className="text-orange-dark">${formatCents(totalCents + SHIPPING_CENTS)}</span>
               </div>
               <button onClick={handleCheckout} className="btn-primary w-full justify-center mt-2">
                 Checkout

@@ -1,22 +1,24 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PRODUCTS, getProduct } from '@/data/products';
+import { prisma } from '@/lib/prisma';
+import { formatCents } from '@/lib/money';
 import AddToCartButton from './AddToCartButton';
 
 export async function generateStaticParams() {
-  return PRODUCTS.map(p => ({ id: p.id }));
+  const products = await prisma.product.findMany({ select: { id: true } });
+  return products.map(p => ({ id: p.id }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const product = getProduct(id);
+  const product = await prisma.product.findUnique({ where: { id } });
   return { title: product ? `${product.name} — Precious Koala` : 'Not found' };
 }
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const product = getProduct(id);
+  const product = await prisma.product.findUnique({ where: { id } });
   if (!product) notFound();
 
   return (
@@ -56,7 +58,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <div>
               <h1 className="text-[clamp(1.6rem,3.5vw,2.2rem)] font-extrabold text-ink mb-2">{product.name}</h1>
               <p className="text-ink-soft text-[0.9rem] mb-4">{product.pack}</p>
-              <p className="text-[2rem] font-extrabold text-orange-dark mb-4">${product.price.toFixed(2)}</p>
+              <p className="text-[2rem] font-extrabold text-orange-dark mb-4">${formatCents(product.priceCents)}</p>
               <p className="text-ink-soft text-[0.97rem] leading-[1.75] mb-6">{product.blurb}</p>
               <ul className="flex flex-col gap-2 mb-8" role="list">
                 {product.specs.map(s => (

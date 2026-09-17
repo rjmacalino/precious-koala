@@ -4,6 +4,7 @@ import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { prisma } from '@/lib/prisma';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -20,11 +21,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const products = await prisma.product.findMany();
+
   return (
     <html lang="en" className={montserrat.variable}>
       <body>
-        <CartProvider>
+        <CartProvider products={products}>
           <Header />
           <main>{children}</main>
           <Footer />

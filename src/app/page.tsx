@@ -1,12 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { PRODUCTS } from '@/data/products';
+import { prisma } from '@/lib/prisma';
 import ProductCard from '@/components/ProductCard';
 import InstaCarousel from '@/components/InstaCarousel';
 import NewsletterForm from '@/components/NewsletterForm';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await prisma.product.findMany();
+
   return (
+
     <>
       {/* ── Hero ── */}
       {/* min-h fills the viewport so the trust strip is below the fold on widescreen */}
@@ -66,7 +69,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-[1.75rem] sm:grid-cols-2 lg:grid-cols-3">
-            {PRODUCTS.map(p => <ProductCard key={p.id} product={p} />)}
+            {products.map(p => <ProductCard key={p.id} product={p} />)}
           </div>
         </div>
       </section>

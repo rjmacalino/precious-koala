@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
+import { formatCents } from '@/lib/money';
 
 export default function ProductCard({ product }: { product: Product }) {
   const { add } = useCart();
@@ -35,7 +36,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="text-ink-soft text-[0.85rem]">{product.pack}</p>
         <div className="mt-auto pt-[0.85rem] flex items-center justify-between">
           <span className="text-[1.3rem] font-extrabold text-orange-dark">
-            ${product.price.toFixed(2)}
+            ${formatCents(product.priceCents)}
           </span>
           <button className="btn-primary btn-sm" onClick={() => add(product.id)}>
             Add to cart

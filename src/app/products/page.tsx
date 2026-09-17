@@ -1,9 +1,11 @@
-import { PRODUCTS } from '@/data/products';
+import { prisma } from '@/lib/prisma';
 import ProductCard from '@/components/ProductCard';
 
 export const metadata = { title: 'Shop — Precious Koala' };
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const products = await prisma.product.findMany();
+
   return (
     <>
       {/* page-band — Bug 2 fix: visible warm gradient instead of same-color stops */}
@@ -14,7 +16,7 @@ export default function ProductsPage() {
       <section className="py-20">
         <div className="container">
           <div className="grid grid-cols-1 gap-[1.75rem] sm:grid-cols-2 lg:grid-cols-3">
-            {PRODUCTS.map(p => <ProductCard key={p.id} product={p} />)}
+            {products.map(p => <ProductCard key={p.id} product={p} />)}
           </div>
         </div>
       </section>
